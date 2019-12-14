@@ -1,0 +1,4 @@
+[{:source "cnn", :shortName "cnn", :link "http://rss.cnn.com/rss/money_news_international.rss"}
+ {:source "cnn money" :shortName "cnnb" :link "http://rss.cnn.com/rss/money_latest.rss"}
+ {:source "bbc business", :shortName "bbc" :link "http://feeds.bbci.co.uk/news/business/rss.xml"}]
+  
