@@ -40,11 +40,8 @@
     (println (get (first z) :link))
     (get (first z) :link)))
 
-;;---------------------------------------------------------
-;;
-(defn -main []
-  (println "Hello, RSS money!"))
 
+;; (defn -main [] (println "hello there"))
 ;;
 ;; cnn is a test map to learn with
 
@@ -70,7 +67,7 @@
 (defn pop-title [m]
   (println (str "item: " (get (first m) :title))))
 ;;
-;; print the title from a map, preface with the "source
+;; print the title from a map, preface with the "source)
 (defn pop-title-2 [s m]
   (println (str s ": " (get (first m) :title))))
 ;;
@@ -111,7 +108,7 @@
         
 ;;
 ;; print news in the config file
-(defn print-all-news
+(defn print-4
   [col]
   (if (not (empty? col))
     (do 
@@ -123,7 +120,7 @@
 ;;
 ;; this assumes the collection a map (not an atom)
 ;;
-(defn print-4 [col]
+(defn print-all-news [col]
   (if (not (empty? col))
     (let 
       [source (get (first col) :source)
@@ -132,3 +129,10 @@
         (pall-title-2 source (get (rss/parse-feed link) :entries))
         (recur (rest col))))))
   
+;;---------------------------------------------------------
+;;
+(defn -main []
+  (do
+    (init-feeds "resources/data.edn")
+    (print-all-news @feeds)))
+
