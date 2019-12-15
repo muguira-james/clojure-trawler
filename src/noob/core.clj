@@ -10,7 +10,7 @@
 ;; First setup and use the edn file to get configuration
 ;;
 ;; The next 4 forms:
-;; feeds is the configuration
+;; feeds is the configuration atom
 ;; init-feeds pulls config in from disk
 ;; save-edn is my experimentation with creating a edn
 ;; read-end is experimentation with reading one from disk
@@ -40,8 +40,9 @@
     (println (get (first z) :link))
     (get (first z) :link)))
 
-
-;; (defn -main [] (println "hello there"))
+;; ================================================
+;;
+;; example code to learn about maps and rss/feed reading
 ;;
 ;; cnn is a test map to learn with
 
@@ -54,6 +55,7 @@
 ;; move over to point to just the entries in the RSS feed
 (def money (get rss :entries))
 
+;; ================================================
 ;;
 ;; pall -> print all items in a map
 (defn pall [m]
@@ -130,6 +132,11 @@
         (recur (rest col))))))
   
 ;;---------------------------------------------------------
+;;
+;; the main just "runs" the app
+;;
+;; init-feeds creates an atom called feeds.
+;; print-all-news: input is the de-ref'ed feeds atom
 ;;
 (defn -main []
   (do
